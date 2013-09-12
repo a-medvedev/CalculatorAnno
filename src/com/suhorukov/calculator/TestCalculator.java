@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Properties;
@@ -20,23 +21,10 @@ public class TestCalculator {
     Scanner codewalker;
 
     public TestCalculator() throws IllegalAccessException, IOException {
-        FileReader fReader = null;
-        try {
-            fReader = new FileReader("./src/com/suhorukov/calculator/comm.prop");
-        } catch (FileNotFoundException e) {
-            System.out.println("Файл свойств не найден");
-            System.exit(1);
-        }
-
         Properties prop = new Properties();
-        try {
-            prop.load(fReader);
-        } catch (IOException e) {
-            System.out.println("Невозможно загрузить файл свойств.");
-            System.exit(2);
-        }
+        InputStream in = Calculator.class.getResourceAsStream("comm.prop");
+        prop.load(in);
 
-        fReader.close();
         for (String propertyName : prop.stringPropertyNames()){
             try {
                 Command command = (Command)(Class.forName(prop.getProperty(propertyName))).newInstance();
