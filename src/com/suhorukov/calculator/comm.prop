@@ -1,0 +1,9 @@
+ADD = com.suhorukov.commands.Add
+DEF = com.suhorukov.commands.Define
+DIV = com.suhorukov.commands.Div
+MUL = com.suhorukov.commands.Mul
+POP = com.suhorukov.commands.Pop
+PRN = com.suhorukov.commands.Print
+PSH = com.suhorukov.commands.Push
+SQR = com.suhorukov.commands.Sqrt
+SUB = com.suhorukov.commands.Sub
