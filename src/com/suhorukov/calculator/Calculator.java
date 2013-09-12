@@ -17,7 +17,7 @@ public class Calculator {
         Properties prop = new Properties();
 
         //Загрузка команд из файла свойств
-        boolean isLoaded = loadCommands(prop, cmds, "comm.prop");
+        boolean isLoaded = loadCommands(prop, cmds, "com1m.prop");
 
         //Если загрузка из файла не удалась, грузим стандартный набор команд
         if (!isLoaded){
@@ -57,7 +57,7 @@ public class Calculator {
 
             //Если введена команда выхода
             if (splitCmd[0].toUpperCase().equals("QUIT")){
-                System.exit(0);
+                break;
             }
 
             Command c = cmds.get(splitCmd[0].toUpperCase());
