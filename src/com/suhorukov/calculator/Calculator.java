@@ -73,7 +73,6 @@ public class Calculator {
             for (Field f : fields){
                 Resource r = f.getAnnotation(Resource.class);
                 if (r.type().equals("stack")){
-
                     f.set(c, stack);
                 }
                 if (r.type().equals("vars")){
