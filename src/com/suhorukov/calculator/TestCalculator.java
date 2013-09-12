@@ -74,7 +74,7 @@ public class TestCalculator {
         code.append("psh 0\n");
         code.append("sub\n");
         code.append("add\n");
-        code.append("div");
+        code.append("div\n");
 
         //используем строку с переносами в качестве источника для сканера
         codewalker = new Scanner(code.toString());
@@ -134,12 +134,7 @@ public class TestCalculator {
             String[] splitCmd = cmd.split(" ");
             Command c = cmds.get(splitCmd[0].toUpperCase());
             Class cls = null;
-            try {
-                cls = c.getClass();
-            } catch (NullPointerException e){
-                System.out.println("2 Ввод завершен.");
-                //System.exit(0);
-            }
+            cls = c.getClass();
 
             Field[] fields = cls.getDeclaredFields();
             for (Field f : fields){
