@@ -15,7 +15,7 @@ import java.util.HashMap;
 public class Calculator {
     private static Scanner input;
 
-    public static void main(String[] args) throws IllegalAccessException {
+    public static void main(String[] args) throws IllegalAccessException, IOException {
         HashMap<String, Command> cmds = new HashMap<String, Command>();
 
         FileReader fReader = null;
@@ -33,6 +33,7 @@ public class Calculator {
             System.out.println("Невозможно загрузить файл свойств");
             System.exit(2);
         }
+        fReader.close();
 
         for (String propertyName : prop.stringPropertyNames()){
             try {

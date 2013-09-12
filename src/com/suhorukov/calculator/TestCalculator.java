@@ -19,7 +19,7 @@ public class TestCalculator {
     HashMap<String, Double> vars = new HashMap<String, Double>();
     Scanner codewalker;
 
-    public TestCalculator() throws IllegalAccessException {
+    public TestCalculator() throws IllegalAccessException, IOException {
         FileReader fReader = null;
         try {
             fReader = new FileReader("./src/com/suhorukov/calculator/comm.prop");
@@ -36,6 +36,7 @@ public class TestCalculator {
             System.exit(2);
         }
 
+        fReader.close();
         for (String propertyName : prop.stringPropertyNames()){
             try {
                 Command command = (Command)(Class.forName(prop.getProperty(propertyName))).newInstance();
